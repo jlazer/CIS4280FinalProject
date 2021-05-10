@@ -7,7 +7,7 @@
 
 <style name="NoteLabel">
     <item name="android:textSize">60sp</item>
-    <item name="android:textColor">@color/blue_900</item>
+    <item name="android:textColor">@color/gray_400 </item>
 </style>
 
 <style name="NoteEditText">

@@ -2,6 +2,8 @@ package com.lazarski.cis4280finalproject;
 
 import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -17,6 +19,8 @@ public class NoteEditActivity extends AppCompatActivity {
     private NoteDatabase mNoteDb;
     private long mNoteId;
     private Note mNote;
+    private View mEditNoteView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +29,8 @@ public class NoteEditActivity extends AppCompatActivity {
 
         mNoteText = findViewById(R.id.noteText);
         mContentText = findViewById(R.id.contentText);
+        mEditNoteView = findViewById(R.id.editNoteView);
+        mEditNoteView.setBackgroundColor(Color.DKGRAY);
 
         mNoteDb = NoteDatabase.getInstance(getApplicationContext());
 

@@ -1,6 +1,7 @@
 package com.lazarski.cis4280finalproject;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -32,11 +33,13 @@ public class NoteActivity extends AppCompatActivity {
     private int mCurrentNoteIndex;
     private ViewGroup mShowNotesLayout;
     private ViewGroup mNoNotesLayout;
+    private View mNoteView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_note);
+
 
         // SubjectActivity should provide the subject ID of the questions to display
         Intent intent = getIntent();
@@ -51,7 +54,12 @@ public class NoteActivity extends AppCompatActivity {
         mContentText = findViewById(R.id.contentText);
         mContentButton = findViewById(R.id.contentButton);
         mShowNotesLayout = findViewById(R.id.showNotesLayout);
+        mShowNotesLayout.setBackgroundColor(Color.DKGRAY);
         mNoNotesLayout = findViewById(R.id.noNotesLayout);
+        mNoteView = findViewById(R.id.noteView);
+
+        mNoteView.setBackgroundColor(Color.DKGRAY);
+
 
         // Show first question
         showNote(0);
@@ -229,14 +237,15 @@ public class NoteActivity extends AppCompatActivity {
 
     private void toggleContentVisibility() {
         if (mContentText.getVisibility() == View.VISIBLE) {
+            mContentButton.setVisibility(View.INVISIBLE);
             mContentButton.setText(R.string.show_content);
-            mContentText.setVisibility(View.INVISIBLE);
-            mContentLabel.setVisibility(View.INVISIBLE);
-        }
-        else {
-            mContentButton.setText(R.string.hide_content);
             mContentText.setVisibility(View.VISIBLE);
             mContentLabel.setVisibility(View.VISIBLE);
+        }
+        else {
+            // mContentButton.setText(R.string.hide_content);
+            //mContentText.setVisibility(View.VISIBLE);
+            //mContentLabel.setVisibility(View.VISIBLE);
         }
     }
 }

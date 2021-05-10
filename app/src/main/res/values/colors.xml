@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="blue_800">#0277BD</color>
-    <color name="blue_900">#01579B</color>
-    <color name="blue_400">#42A5F5</color>
+    <color name="blue_800">#000000</color>
+    <color name="blue_900">#161618</color>
+    <color name="blue_400">#212124</color>
 
     <!-- dark theme -->
     <color name="paleblue_900">#023</color>
@@ -13,14 +13,14 @@
     <color name="gray_700">#555</color>
 
     <array name="categoryColors">
-        <item>#1A237E</item>
-        <item>#880E4F</item>
-        <item>#006064</item>
-        <item>#F57F17</item>
-        <item>#BF360C</item>
-        <item>#01579B</item>
-        <item>#33691E</item>
-        <item>#4A148C</item>
-        <item>#B71C1C</item>
+        <item>#161618</item>
+        <item>#161618</item>
+        <item>#161618</item>
+        <item>#161618</item>
+        <item>#161618</item>
+        <item>#161618</item>
+        <item>#161618</item>
+        <item>#161618</item>
+        <item>#161618</item>
     </array>
 </resources>

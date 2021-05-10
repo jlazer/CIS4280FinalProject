@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="10dp"
-    tools:context="com.lazarski.cis4280finalproject.NoteEditActivity">
+    tools:context="com.lazarski.cis4280finalproject.NoteEditActivity"
+    android:id="@+id/editNoteView">
 
     <TextView
         android:id="@+id/noteLabel"

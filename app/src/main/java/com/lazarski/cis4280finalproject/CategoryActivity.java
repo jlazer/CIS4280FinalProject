@@ -2,6 +2,7 @@ package com.lazarski.cis4280finalproject;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -29,6 +30,7 @@ public class CategoryActivity extends AppCompatActivity
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_category);
 
+
             // Singleton
             mNoteDb = NoteDatabase.getInstance(getApplicationContext());
 
@@ -39,6 +41,7 @@ public class CategoryActivity extends AppCompatActivity
             RecyclerView.LayoutManager gridLayoutManager =
                     new GridLayoutManager(getApplicationContext(), 2);
             mRecyclerView.setLayoutManager(gridLayoutManager);
+            mRecyclerView.setBackgroundColor(Color.DKGRAY);
 
             // Show the available subjects
             mCategoryAdapter = new CategoryAdapter(loadCategories());
