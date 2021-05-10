@@ -1,3 +1,31 @@
 <resources>
     <string name="app_name">CIS4280FinalProject</string>
+    <string name="note_label">N</string>
+    <string name="note_hint">Note</string>
+    <string name="content_label">C</string>
+    <string name="content_hint">Content</string>
+    <string name="show_content">Show Content</string>
+    <string name="hide_content">Hide Content</string>
+    <string name="previous">Previous</string>
+    <string name="next">Next</string>
+    <string name="add">Add</string>
+    <string name="delete">Delete</string>
+    <string name="edit">Edit</string>
+    <string name="update">Update</string>
+    <string name="save_note">Save Note</string>
+    <string name="add_category">Add Category</string>
+    <string name="note_deleted">Note deleted.</string>
+    <string name="note_added">Note added.</string>
+    <string name="note_updated">Note updated.</string>
+    <string name="create">Create</string>
+    <string name="category">New category?</string>
+    <string name="cancel">Cancel</string>
+    <string name="update_note">Update Note</string>
+    <string name="add_note">Add Note</string>
+    <string name="no_notes">No notes exist for this subject.</string>
+    <string name="category_exists">The category "%1$s" already exists.</string>
+    <string name="note_number">%1$s (%2$d of %3$d)</string>
+    <string name="import_note">Import</string>
+    <string name="select_category">Select a category:</string>
+    <string name="undo">Undo</string>
 </resources>

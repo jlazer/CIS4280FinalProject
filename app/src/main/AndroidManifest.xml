@@ -9,7 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CIS4280FinalProject">
-        <activity android:name=".MainActivity">
+        <activity android:name=".NoteEditActivity"
+            android:parentActivityName=".NoteActivity" />
+        <activity
+            android:name=".NoteActivity"
+            android:launchMode="singleTop"
+            android:parentActivityName=".CategoryActivity" />
+        <activity android:name=".CategoryActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
