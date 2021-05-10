@@ -43,7 +43,7 @@ public class CategoryActivity extends AppCompatActivity
             mRecyclerView.setLayoutManager(gridLayoutManager);
             mRecyclerView.setBackgroundColor(Color.DKGRAY);
 
-            // Show the available subjects
+            // Show the available categories
             mCategoryAdapter = new CategoryAdapter(loadCategories());
             mRecyclerView.setAdapter(mCategoryAdapter);
         }

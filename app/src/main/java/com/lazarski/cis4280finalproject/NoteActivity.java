@@ -41,11 +41,11 @@ public class NoteActivity extends AppCompatActivity {
         setContentView(R.layout.activity_note);
 
 
-        // SubjectActivity should provide the subject ID of the questions to display
+        // CategoryActivity should provide the category ID of the notes to display
         Intent intent = getIntent();
         mCategoryId = intent.getLongExtra(EXTRA_CATEGORY_ID, 0);
 
-        // Get all questions for this subject
+        // Get all notes for this category
         mNoteDb = NoteDatabase.getInstance(getApplicationContext());
         mNoteList = mNoteDb.noteDao().getNotes(mCategoryId);
 
@@ -61,11 +61,10 @@ public class NoteActivity extends AppCompatActivity {
         mNoteView.setBackgroundColor(Color.DKGRAY);
 
 
-        // Show first question
+        // Show first note
         showNote(0);
     }
 
-    // Refactor from here down.
     @Override
     protected void onStart() {
         super.onStart();
@@ -119,22 +118,22 @@ public class NoteActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (resultCode == RESULT_OK && requestCode == REQUEST_CODE_NEW_NOTE) {
-            // Get added question
+            // Get added note
             long noteId = data.getLongExtra(NoteEditActivity.EXTRA_NOTE_ID, -1);
             Note newNote = mNoteDb.noteDao().getNote(noteId);
 
-            // Add newly created question to the question list and show it
+            // Add newly created note to the note list and show it
             mNoteList.add(newNote);
             showNote(mNoteList.size() - 1);
 
             Toast.makeText(this, R.string.note_added, Toast.LENGTH_SHORT).show();
         }
         else if (resultCode == RESULT_OK && requestCode == REQUEST_CODE_UPDATE_NOTE) {
-            // Get updated question
+            // Get updated note
             long noteId = data.getLongExtra(NoteEditActivity.EXTRA_NOTE_ID, -1);
             Note updatedNote = mNoteDb.noteDao().getNote(noteId);
 
-            // Replace current question in question list with updated question
+            // Replace current note in note list with updated note
             Note currentNote = mNoteList.get(mCurrentNoteIndex);
             currentNote.setText(updatedNote.getText());
             currentNote.setNoteContent(updatedNote.getNoteContent());
@@ -165,7 +164,7 @@ public class NoteActivity extends AppCompatActivity {
 
     private void updateAppBarTitle() {
 
-        // Display subject and number of questions in app bar
+        // Display categories and number of note in app bar
         Category category = mNoteDb.categoryDao().getCategory(mCategoryId);
         String title = getResources().getString(R.string.note_number,
                 category.getText(), mCurrentNoteIndex + 1, mNoteList.size());
@@ -198,7 +197,7 @@ public class NoteActivity extends AppCompatActivity {
             mNoteList.remove(mCurrentNoteIndex);
 
             if (mNoteList.size() == 0) {
-                // No questions left to show
+                // No notes left to show
                 mCurrentNoteIndex = -1;
                 updateAppBarTitle();
                 displayNote(false);
@@ -213,7 +212,7 @@ public class NoteActivity extends AppCompatActivity {
 
     private void showNote(int noteIndex) {
 
-        // Show question at the given index
+        // Show note at the given index
         if (mNoteList.size() > 0) {
             if (noteIndex < 0) {
                 noteIndex = mNoteList.size() - 1;
@@ -230,7 +229,7 @@ public class NoteActivity extends AppCompatActivity {
             mContentText.setText(note.getNoteContent());
         }
         else {
-            // No questions yet
+            // No notes yet
             mCurrentNoteIndex = -1;
         }
     }

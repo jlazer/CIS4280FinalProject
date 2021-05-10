@@ -30,7 +30,7 @@ public abstract class NoteDatabase extends RoomDatabase {
 
     private void addStarterData() {
 
-        // Add a few subjects and questions if database is empty
+        // Add a few categories and notes if database is empty
         if (categoryDao().getCategories().size() == 0) {
 
             // Execute code on a background thread
@@ -40,7 +40,7 @@ public abstract class NoteDatabase extends RoomDatabase {
                     Category category = new Category("Math");
                     long categoryId = categoryDao().insertCategory(category);
 
-                    Note note = new Note();
+                    /*Note note = new Note();
                     note.setText("What is 2 + 3?");
                     note.setNoteContent("2 + 3 = 5");
                     note.setCategoryId(categoryId);
@@ -61,7 +61,8 @@ public abstract class NoteDatabase extends RoomDatabase {
                     note.setCategoryId(categoryId);
                     noteDao().insertNote(note);
 
-                    category = new Category("Computing");
+                    category = new Category("Computing");*/
+
                     categoryId = categoryDao().insertCategory(category);
                 }
             });

@@ -34,17 +34,17 @@ public class NoteEditActivity extends AppCompatActivity {
 
         mNoteDb = NoteDatabase.getInstance(getApplicationContext());
 
-        // Get question ID from QuestionActivity
+        // Get note ID from NoteActivity
         Intent intent = getIntent();
         mNoteId = intent.getLongExtra(EXTRA_NOTE_ID, -1);
 
         if (mNoteId == -1) {
-            // Add new question
+            // Add new note
             mNote = new Note();
             setTitle(R.string.add_note);
         }
         else {
-            // Update existing question
+            // Update existing note
             mNote = mNoteDb.noteDao().getNote(mNoteId);
             mNoteText.setText(mNote.getText());
             mContentText.setText(mNote.getNoteContent());
@@ -61,16 +61,16 @@ public class NoteEditActivity extends AppCompatActivity {
         mNote.setNoteContent(mContentText.getText().toString());
 
         if (mNoteId == -1) {
-            // New question
+            // New note
             long newId = mNoteDb.noteDao().insertNote(mNote);
             mNote.setId(newId);
         }
         else {
-            // Existing question
+            // Existing note
             mNoteDb.noteDao().updateNote(mNote);
         }
 
-        // Send back question ID
+        // Send back note ID
         Intent intent = new Intent();
         intent.putExtra(EXTRA_NOTE_ID, mNote.getId());
         setResult(RESULT_OK, intent);
