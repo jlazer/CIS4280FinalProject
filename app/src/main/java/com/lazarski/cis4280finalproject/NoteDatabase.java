@@ -37,31 +37,8 @@ public abstract class NoteDatabase extends RoomDatabase {
             runInTransaction(new Runnable() {
                 @Override
                 public void run() {
-                    Category category = new Category("Math");
+                    Category category = new Category("Work");
                     long categoryId = categoryDao().insertCategory(category);
-
-                    /*Note note = new Note();
-                    note.setText("What is 2 + 3?");
-                    note.setNoteContent("2 + 3 = 5");
-                    note.setCategoryId(categoryId);
-                    noteDao().insertNote(note);
-
-                    note = new Note();
-                    note.setText("What is pi?");
-                    note.setNoteContent("Pi is the ratio of a circle's circumference to its diameter.");
-                    note.setCategoryId(categoryId);
-                    noteDao().insertNote(note);
-
-                    category = new Category("History");
-                    categoryId = categoryDao().insertCategory(category);
-
-                    note = new Note();
-                    note.setText("On what date was the U.S. Declaration of Independence adopted?");
-                    note.setNoteContent("July 4, 1776.");
-                    note.setCategoryId(categoryId);
-                    noteDao().insertNote(note);
-
-                    category = new Category("Computing");*/
 
                     categoryId = categoryDao().insertCategory(category);
                 }
